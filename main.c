@@ -9,7 +9,6 @@
 
 static double w[WEIGHTS];
 
-
 double activate(const double a) {
      return (a <= 0) ? 0 : 1;
 }
@@ -33,14 +32,14 @@ void train(const int data[4][3], const int exp[4]) {
 }
 int main(void) {
      int i;
-     static const int trainingdata[4][3] = {
+     const int trainingdata[4][3] = {
 	  {0, 0, 1},
 	  {0, 1, 1},
 	  {1, 0, 1},
 	  {0, 1, 0}
      };
      
-     static const int expresults[4] = {0, 0, 1, 0};
+     const int expresults[4] = {0, 0, 1, 0};
      
      srand(time(NULL));
      
@@ -52,7 +51,7 @@ int main(void) {
      for(i = 0; i < 3; i++)
 	  w[i] = (w[i] > 0) ? w[i] : 0;
      
-     static const double new[3] = {1, 1, 0};
+     const double new[3] = {1, 1, 0};
 
      printf("%.1f\n", activate(RightProp(new)));
 }
